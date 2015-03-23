@@ -1,0 +1,6 @@
+Description:
+
+1.) Even Number valves must be opened before odd valves
+2.) All even must be opened in random order
+3.) All odd must open in decreasing order ( in groups of how many wrenches )
+4.)
