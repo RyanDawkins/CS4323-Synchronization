@@ -8,6 +8,7 @@ public class RandomSelector implements Runnable {
     @Override
     public void run() {
 
+        // While evens are still running
         while( (Program2.evens.size()+Program2.priority.size()) > 0) {
             try {
                 Program2.evenSelector.acquire();
@@ -19,6 +20,7 @@ public class RandomSelector implements Runnable {
             }
             Random random = new Random();
 
+            // Changes list to priority or even list depending on if priorities exist
             LinkedList<Integer> list;
             int size = 0;
             if( Program2.priority.size() > 0 ) {
@@ -26,6 +28,8 @@ public class RandomSelector implements Runnable {
             } else {
                 list = Program2.evens;
             }
+
+            // Selects random valve
             int index = random.nextInt(list.size());
             Program2.selectedInt = list.get(index);
         }

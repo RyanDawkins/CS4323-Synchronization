@@ -22,6 +22,7 @@ public class Program2
     public static int selectedInt = -1;
     public static int selectedOdd = -1;
     public static int numberOfWrenches = 0;
+    public static int numberOfValvesClosed = 0;
 
     public static void main(String[] args){
 
@@ -34,6 +35,7 @@ public class Program2
         if(scanner.hasNextInt()) {
             numberOfValves = scanner.nextInt();
             validate(5, numberOfValves, 100 + 1);
+            numberOfValvesClosed = numberOfValves;
         } else {
             System.out.println("You did not enter a valid number.");
             System.exit(1);
@@ -57,27 +59,43 @@ public class Program2
             System.exit(1);
         }
 
+        // Here we get all of our threads and sort them appropriately
         ValveOpener[] valveOpeners = new ValveOpener[numberOfValves];
 
         for(int i = 1; i < numberOfValves+1; i++) {
+
+            // Even Logic
             if(i % 2 == 0) {
+
+                // Checking our magic number priority list
                 if(magicNumber != 0 && i % magicNumber == 0) {
                     priority.add(i);
                 } else {
+                // Regular even list
                     evens.add(i);
                 }
+            // Odd Logic
             } else {
                 odds.push(i);
             }
             valveOpeners[i-1] = new ValveOpener(i);
         }
 
+        // Here we start our threads.
         System.out.println(evens.size());
         new Thread(new RandomSelector()).start();
         new Thread(new OddSelector()).start();
         for(int i = 0; i < valveOpeners.length; i++) {
             new Thread(valveOpeners[i]).start();
         }
+
+        int x = 0;
+        while(numberOfValvesClosed > 0) {
+          // For some reason the buffer would not flush. And it would hang up.
+          System.out.flush(); // The program hangs if this is not called.
+        }
+
+        System.out.println("All threads finished exiting now.");
 
     }
 
