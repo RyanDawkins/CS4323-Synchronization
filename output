@@ -3,14 +3,15 @@ Enter number of valves (5 < v <= 100)
 Enter number of wrenches (3 < w <=25)
 > 4
 Enter a magic number (0 <= x < 12)
-> 5
-Valve ID: 10	Closed Valves: 9
-Valve ID: 8	Closed Valves: 8
-Valve ID: 4	Closed Valves: 7
-Valve ID: 6	Closed Valves: 6
-Valve ID: 2	Closed Valves: 5
-Valve ID: 9	Closed Valves: 4
-Valve ID: 7	Closed Valves: 3
-Valve ID: 5	Closed Valves: 2
-Valve ID: 3	Closed Valves: 1
-Valve ID: 1	Closed Valves: 0
+> 4
+ThreadID: 15	Valve ID: 4	Closed Valves: 9
+ThreadID: 19	Valve ID: 8	Closed Valves: 8
+ThreadID: 21	Valve ID: 10	Closed Valves: 7
+ThreadID: 13	Valve ID: 2	Closed Valves: 6
+ThreadID: 17	Valve ID: 6	Closed Valves: 5
+ThreadID: 16	Valve ID: 5	Closed Valves: 4
+ThreadID: 18	Valve ID: 7	Closed Valves: 3
+ThreadID: 20	Valve ID: 9	Closed Valves: 2
+ThreadID: 14	Valve ID: 3	Closed Valves: 1
+ThreadID: 12	Valve ID: 1	Closed Valves: 0
+All threads finished exiting now.
